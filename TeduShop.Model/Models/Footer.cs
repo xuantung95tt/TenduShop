@@ -10,5 +10,6 @@ namespace TeduShop.Model.Models
     [Table("Footers")]
     public class Footer
     {
+
     }
 }
