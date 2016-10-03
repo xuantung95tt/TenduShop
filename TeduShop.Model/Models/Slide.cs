@@ -4,26 +4,28 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace TeduShop.Model.Models
 {
     [Table("Slides")]
-    internal class Slide
+    public class Slide
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
         [Required]
+        [MaxLength(500)]
         public string Name { get; set; }
 
+        [MaxLength(500)]
         public string Description { get; set; }
 
         [Required]
+        [MaxLength(500)]
         public string Image { get; set; }
 
         [Required]
+        [MaxLength(500)]
         public string URL { get; set; }
 
         public int? DisplayOrder { get; set; }
-
-        [Required]
         public bool Status { get; set; }
     }
 }

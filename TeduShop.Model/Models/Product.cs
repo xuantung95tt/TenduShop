@@ -7,22 +7,32 @@ using TeduShop.Model.Abstract;
 namespace TeduShop.Model.Models
 {
     [Table("Products")]
-    internal class Product : Auditable
+    public class Product : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+
         [Required]
+        [MaxLength(500)]
         public string Name { get; set; }
+
         [Required]
+        [MaxLength(500)]
+        [Column(TypeName = "varchar")]
         public string Alias { get; set; }
+
         public int CategoryID { get; set; }
+        [MaxLength(500)]
         public string Image { get; set; }
         public XElement MoreImages { get; set; }
+
         [Required]
         public decimal Price { get; set; }
+
         public decimal? PromotionPrice { get; set; }
         public decimal? Warranty { get; set; }
+        [MaxLength(500)]
         public string Description { get; set; }
         public string Content { get; set; }
         public bool? HomeFlag { get; set; }
@@ -31,7 +41,5 @@ namespace TeduShop.Model.Models
 
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { get; set; }
-        public virtual IEnumerable<ProductTag> ProductTags { get; set; }
-        public virtual IEnumerable<OrderDetail> OrderDetails { get; set; }
     }
 }

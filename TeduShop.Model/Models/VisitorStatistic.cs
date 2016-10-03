@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace TeduShop.Model.Models
 {
     [Table("VisitorStatistics")]
-    internal class VisitorStatistic
+    public class VisitorStatistic
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -15,6 +15,7 @@ namespace TeduShop.Model.Models
         public DateTime VistedDate { get; set; }
 
         [Required]
+        [MaxLength(500)]
         public string IPAddress { get; set; }
     }
 }
