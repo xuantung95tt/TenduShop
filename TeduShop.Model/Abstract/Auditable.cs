@@ -15,7 +15,7 @@ namespace TeduShop.Model.Abstract
         public string MetaDescription { get; set; }
         [MaxLength(256)]
         public string MetaKeyword { get; set; }
-        [MaxLength(256)]
-        public string Status { get; set; }
+        [Required]
+        public bool Status { get; set; }
     }
 }
