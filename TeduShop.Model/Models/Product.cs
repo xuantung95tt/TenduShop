@@ -11,20 +11,15 @@ namespace TeduShop.Model.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
-
         [Required]
         public string Name { get; set; }
-
         [Required]
         public string Alias { get; set; }
-
         public int CategoryID { get; set; }
         public string Image { get; set; }
         public XElement MoreImages { get; set; }
-
         [Required]
         public decimal Price { get; set; }
-
         public decimal? PromotionPrice { get; set; }
         public decimal? Warranty { get; set; }
         public string Description { get; set; }
