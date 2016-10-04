@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TedShop.Data.Infrastructure
 {
-    public abstract class RespositoryBase<T> where T : class
+    public abstract class RespositoryBase<T> : IRespository<T> where T : class
     {
         #region Properties
+
         private TenduShopDbContext dataContext;
         private readonly IDbSet<T> dbSet;
+
+        public RespositoryBase(IDbFactory dbFactory)
+        {
+            DbFactory = dbFactory;
+        }
 
         protected IDbFactory DbFactory
         {
@@ -24,22 +28,27 @@ namespace TedShop.Data.Infrastructure
         {
             get { return dataContext ?? (dataContext = DbFactory.Init()); }
         }
-        #endregion
+
+        #endregion Properties
 
         #region Implementation
+
         public virtual void Add(T entity)
         {
             dbSet.Add(entity);
         }
+
         public virtual void Update(T entity)
         {
             dbSet.Attach(entity);
             dataContext.Entry(entity).State = EntityState.Modified;
         }
+
         public virtual void Delete(T entity)
         {
             dbSet.Remove(entity);
         }
+
         public virtual void DeleteMulti(Expression<Func<T, bool>> where)
         {
             IEnumerable<T> objects = dbSet.Where<T>(where).AsEnumerable();
@@ -122,6 +131,7 @@ namespace TedShop.Data.Infrastructure
         {
             return dataContext.Set<T>().Count<T>(predicate) > 0;
         }
-        #endregion
+
+        #endregion Implementation
     }
 }
