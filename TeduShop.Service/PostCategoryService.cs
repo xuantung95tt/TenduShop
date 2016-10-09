@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TedShop.Data.Infrastructure;
 using TedShop.Data.Respositories;
 using TeduShop.Model.Models;
@@ -25,15 +21,18 @@ namespace TeduShop.Service
 
         void SaveChanges();
     }
+
     public class PostCategoryService : IPostCategoryService
     {
-        IPostCategoryRespository _postCategoryRespository;
-        IUnitOfWork _unitOfWork;
+        private IPostCategoryRespository _postCategoryRespository;
+        private IUnitOfWork _unitOfWork;
+
         public PostCategoryService(IPostCategoryRespository postCategoryRespository, IUnitOfWork unitOfWork)
         {
             this._postCategoryRespository = postCategoryRespository;
             this._unitOfWork = unitOfWork;
         }
+
         public void Add(PostCategory post)
         {
             _postCategoryRespository.Add(post);
