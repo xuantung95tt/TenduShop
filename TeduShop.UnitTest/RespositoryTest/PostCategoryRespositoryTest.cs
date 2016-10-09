@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TedShop.Data.Infrastructure;
 using TedShop.Data.Respositories;
 using TeduShop.Model.Models;
@@ -13,9 +9,10 @@ namespace TeduShop.UnitTest.RespositoryTest
     [TestClass]
     public class PostCategoryRespositoryTest
     {
-        IDbFactory dbFactory;
-        IPostCategoryRespository objRespository;
-        IUnitOfWork unitOfWork;
+        private IDbFactory dbFactory;
+        private IPostCategoryRespository objRespository;
+        private IUnitOfWork unitOfWork;
+
         [TestInitialize]
         public void Initialize()
         {
@@ -23,6 +20,7 @@ namespace TeduShop.UnitTest.RespositoryTest
             objRespository = new PostCategoryRespository(dbFactory);
             unitOfWork = new UnitOfWork(dbFactory);
         }
+
         [TestMethod]
         public void PostCategory_Respository_Create()
         {
@@ -35,7 +33,13 @@ namespace TeduShop.UnitTest.RespositoryTest
             unitOfWork.Commit();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(1, result.ID);
+            Assert.AreEqual(6, result.ID);
+        }
+        [TestMethod]
+        public void PostCategory_Respository_GetAll()
+        {
+            var list = objRespository.GetAll().ToList();
+            Assert.AreEqual(3, list.Count);
         }
     }
 }
