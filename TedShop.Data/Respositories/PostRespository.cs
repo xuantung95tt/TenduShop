@@ -21,7 +21,8 @@ namespace TedShop.Data.Respositories
             var query = from p in DbContext.Posts
                         join pt in DbContext.PostTags
                         on p.ID equals pt.PostID
-                        where pt.TagID == tag
+                        where pt.TagID == tag && p.Status
+                        orderby p.CreatedDate descending
                         select p;
             totalRow = query.Count();
             query = query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
