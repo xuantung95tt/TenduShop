@@ -3,13 +3,13 @@ using TeduShop.Model.Models;
 
 namespace TedShop.Data.Respositories
 {
-    public interface ISupportOnlineRespository : IRespository<SupportOnline>
+    public interface ISupportOnlineRepository : IRepository<SupportOnline>
     {
     }
 
-    public class SupportOnlineRespository : RespositoryBase<SupportOnline>, ISupportOnlineRespository
+    public class SupportOnlineRepository : RepositoryBase<SupportOnline>, ISupportOnlineRepository
     {
-        public SupportOnlineRespository(IDbFactory dbFactory) : base(dbFactory)
+        public SupportOnlineRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }
     }

@@ -12,7 +12,7 @@ namespace TeduShop.UnitTest.ServiceTest
     [TestClass]
     public class PostCategoryServiceTest
     {
-        private Mock<IPostCategoryRespository> _mockRespository;
+        private Mock<IPostCategoryRepository> _mockRepository;
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private IPostCategoryService _categoryService;
         private List<PostCategory> _listCategory;
@@ -20,9 +20,9 @@ namespace TeduShop.UnitTest.ServiceTest
         [TestInitialize]
         public void Initialize()
         {
-            _mockRespository = new Mock<IPostCategoryRespository>();
+            _mockRepository = new Mock<IPostCategoryRepository>();
             _mockUnitOfWork = new Mock<IUnitOfWork>();
-            _categoryService = new PostCategoryService(_mockRespository.Object, _mockUnitOfWork.Object);
+            _categoryService = new PostCategoryService(_mockRepository.Object, _mockUnitOfWork.Object);
             _listCategory = new List<PostCategory>()
             {
                 new PostCategory() {ID=1, Name="DM1", Status=true },
@@ -35,7 +35,7 @@ namespace TeduShop.UnitTest.ServiceTest
         public void PostCategory_Service_GetAll()
         {
             //setup method
-            _mockRespository.Setup(m => m.GetAll(null)).Returns(_listCategory);
+            _mockRepository.Setup(m => m.GetAll(null)).Returns(_listCategory);
             //call action
             var result = _categoryService.GetAll() as List<PostCategory>;
             //compare
@@ -51,7 +51,7 @@ namespace TeduShop.UnitTest.ServiceTest
             category.Alias = "Test";
             category.Status = true;
 
-            _mockRespository.Setup(m => m.Add(category)).Returns((PostCategory p) =>
+            _mockRepository.Setup(m => m.Add(category)).Returns((PostCategory p) =>
               {
                   p.ID = 1;
                   return p;

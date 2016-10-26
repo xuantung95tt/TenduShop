@@ -3,13 +3,13 @@ using TeduShop.Model.Models;
 
 namespace TedShop.Data.Respositories
 {
-    public interface IMenuRespository : IRespository<Menu>
+    public interface IMenuRepository : IRepository<Menu>
     {
     }
 
-    public class MenuRespository : RespositoryBase<Menu>, IMenuRespository
+    public class MenuRepository : RepositoryBase<Menu>, IMenuRepository
     {
-        public MenuRespository(DbFactory dbFactory) : base(dbFactory)
+        public MenuRepository(DbFactory dbFactory) : base(dbFactory)
         {
         }
     }

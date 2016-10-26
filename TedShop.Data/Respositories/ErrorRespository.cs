@@ -3,13 +3,13 @@ using TeduShop.Model.Models;
 
 namespace TedShop.Data.Respositories
 {
-    public interface IErrorRespository : IRespository<Error>
+    public interface IErrorRepository : IRepository<Error>
     {
     }
 
-    internal class ErrorRespository : RespositoryBase<Error>, IErrorRespository
+    internal class ErrorRepository : RepositoryBase<Error>, IErrorRepository
     {
-        public ErrorRespository(DbFactory dbFactory) : base(dbFactory)
+        public ErrorRepository(DbFactory dbFactory) : base(dbFactory)
         {
         }
     }

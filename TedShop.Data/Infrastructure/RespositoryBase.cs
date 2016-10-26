@@ -6,14 +6,14 @@ using System.Linq.Expressions;
 
 namespace TedShop.Data.Infrastructure
 {
-    public abstract class RespositoryBase<T> : IRespository<T> where T : class
+    public abstract class RepositoryBase<T> : IRepository<T> where T : class
     {
         #region Properties
 
         private TenduShopDbContext dataContext;
         private readonly IDbSet<T> dbSet;
 
-        public RespositoryBase(IDbFactory dbFactory)
+        public RepositoryBase(IDbFactory dbFactory)
         {
             DbFactory = dbFactory;
             dbSet = DbContext.Set<T>();

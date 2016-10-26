@@ -6,14 +6,14 @@ using TeduShop.Model.Models;
 
 namespace TedShop.Data.Respositories
 {
-    public interface IProductCategoryRespository : IRespository<ProductCategory>
+    public interface IProductCategoryRepository : IRepository<ProductCategory>
     {
         IEnumerable<ProductCategory> GetByAlias(string alias);
     }
 
-    public class ProductCategoryRespository : RespositoryBase<ProductCategory>, IProductCategoryRespository
+    public class ProductCategoryRepository : RepositoryBase<ProductCategory>, IProductCategoryRepository
     {
-        public ProductCategoryRespository(IDbFactory dbFactory) : base(dbFactory)
+        public ProductCategoryRepository(IDbFactory dbFactory) : base(dbFactory)
         {
             
         }

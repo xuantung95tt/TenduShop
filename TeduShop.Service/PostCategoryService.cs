@@ -24,38 +24,38 @@ namespace TeduShop.Service
 
     public class PostCategoryService : IPostCategoryService
     {
-        private IPostCategoryRespository _postCategoryRespository;
+        private IPostCategoryRepository _postCategoryRepository;
         private IUnitOfWork _unitOfWork;
 
-        public PostCategoryService(IPostCategoryRespository postCategoryRespository, IUnitOfWork unitOfWork)
+        public PostCategoryService(IPostCategoryRepository postCategoryRepository, IUnitOfWork unitOfWork)
         {
-            this._postCategoryRespository = postCategoryRespository;
+            this._postCategoryRepository = postCategoryRepository;
             this._unitOfWork = unitOfWork;
         }
 
         public PostCategory Add(PostCategory post)
         {
-            return _postCategoryRespository.Add(post);
+            return _postCategoryRepository.Add(post);
         }
 
         public PostCategory Delete(int id)
         {
-            return _postCategoryRespository.Delete(id);
+            return _postCategoryRepository.Delete(id);
         }
 
         public IEnumerable<PostCategory> GetAll()
         {
-            return _postCategoryRespository.GetAll();
+            return _postCategoryRepository.GetAll();
         }
 
         public IEnumerable<PostCategory> GetAllByParentId(int parentId)
         {
-            return _postCategoryRespository.GetMulti(x => x.ParentID == parentId && x.Status);
+            return _postCategoryRepository.GetMulti(x => x.ParentID == parentId && x.Status);
         }
 
         public PostCategory GetById(int id)
         {
-            return _postCategoryRespository.GetSingleById(id);
+            return _postCategoryRepository.GetSingleById(id);
         }
 
         public void SaveChanges()
@@ -65,7 +65,7 @@ namespace TeduShop.Service
 
         public void Update(PostCategory post)
         {
-            _postCategoryRespository.Update(post);
+            _postCategoryRepository.Update(post);
         }
     }
 }

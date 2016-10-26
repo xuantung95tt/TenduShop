@@ -88,9 +88,9 @@
       <Project>{10427e05-3114-44ae-8998-26dac83d17a0}</Project>
       <Name>TeduShop.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TenduShop.Web\TenduShop.Web.csproj">
+    <ProjectReference Include="..\TenduShop.Web\TeduShop.Web.csproj">
       <Project>{efa60b40-6470-4389-a060-c24c3c8c8e5e}</Project>
-      <Name>TenduShop.Web</Name>
+      <Name>TeduShop.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -29,50 +29,50 @@ namespace TeduShop.Service
 
     public class PostService : IPostService
     {
-        private IPostRespository _postRespository;
+        private IPostRepository _postRepository;
         private IUnitOfWork _unitOfWork;
 
-        public PostService(IPostRespository postRespository, IUnitOfWork unitOfWork)
+        public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork)
         {
-            this._postRespository = postRespository;
+            this._postRepository = postRepository;
             this._unitOfWork = unitOfWork;
         }
 
         public void Add(Post post)
         {
-            _postRespository.Add(post);
+            _postRepository.Add(post);
         }
 
         public void Delete(int id)
         {
-            _postRespository.Delete(id);
+            _postRepository.Delete(id);
         }
 
         public IEnumerable<Post> GetAll()
         {
-            return _postRespository.GetAll(new string[] { "PostCategory" });
+            return _postRepository.GetAll(new string[] { "PostCategory" });
         }
 
         public IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow)
         {
-            return _postRespository.GetMultiPaging(x => x.Status && x.CategoryID == categoryId, out totalRow, page, pageSize, new
+            return _postRepository.GetMultiPaging(x => x.Status && x.CategoryID == categoryId, out totalRow, page, pageSize, new
                  string[] { "PostCategory" });
         }
 
         public IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow)
         {
             //TODO: select all post by tag
-            return _postRespository.GetAllByTag(tag, page, pageSize, out totalRow);
+            return _postRepository.GetAllByTag(tag, page, pageSize, out totalRow);
         }
 
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)
         {
-            return _postRespository.GetMultiPaging(x => x.Status, out totalRow, page, pageSize);
+            return _postRepository.GetMultiPaging(x => x.Status, out totalRow, page, pageSize);
         }
 
         public Post GetById(int id)
         {
-            return _postRespository.GetSingleById(id);
+            return _postRepository.GetSingleById(id);
         }
 
         public void SaveChanges()
@@ -82,7 +82,7 @@ namespace TeduShop.Service
 
         public void Update(Post post)
         {
-            _postRespository.Update(post);
+            _postRepository.Update(post);
         }
     }
 }

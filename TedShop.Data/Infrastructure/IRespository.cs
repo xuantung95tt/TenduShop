@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace TedShop.Data.Infrastructure
 {
-    public interface IRespository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         T Add(T entity);
 

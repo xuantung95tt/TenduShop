@@ -5,14 +5,14 @@ using TeduShop.Model.Models;
 
 namespace TedShop.Data.Respositories
 {
-    public interface IPostRespository : IRespository<Post>
+    public interface IPostRepository : IRepository<Post>
     {
         IEnumerable<Post> GetAllByTag(string tag, int pageIndex, int pageSize, out int totalRow);
     }
 
-    public class PostRespository : RespositoryBase<Post>, IPostRespository
+    public class PostRepository : RepositoryBase<Post>, IPostRepository
     {
-        public PostRespository(IDbFactory dbFactory) : base(dbFactory)
+        public PostRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }
 

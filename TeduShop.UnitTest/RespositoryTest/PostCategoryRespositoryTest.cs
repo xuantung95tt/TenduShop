@@ -4,41 +4,41 @@ using TedShop.Data.Infrastructure;
 using TedShop.Data.Respositories;
 using TeduShop.Model.Models;
 
-namespace TeduShop.UnitTest.RespositoryTest
+namespace TeduShop.UnitTest.RepositoryTest
 {
     [TestClass]
-    public class PostCategoryRespositoryTest
+    public class PostCategoryRepositoryTest
     {
         private IDbFactory dbFactory;
-        private IPostCategoryRespository objRespository;
+        private IPostCategoryRepository objRepository;
         private IUnitOfWork unitOfWork;
 
         [TestInitialize]
         public void Initialize()
         {
             dbFactory = new DbFactory();
-            objRespository = new PostCategoryRespository(dbFactory);
+            objRepository = new PostCategoryRepository(dbFactory);
             unitOfWork = new UnitOfWork(dbFactory);
         }
 
         [TestMethod]
-        public void PostCategory_Respository_Create()
+        public void PostCategory_Repository_Create()
         {
             PostCategory category = new PostCategory();
             category.Name = "Test category";
             category.Alias = "Test-category";
             category.Status = true;
 
-            var result = objRespository.Add(category);
+            var result = objRepository.Add(category);
             unitOfWork.Commit();
 
             Assert.IsNotNull(result);
             Assert.AreEqual(6, result.ID);
         }
         [TestMethod]
-        public void PostCategory_Respository_GetAll()
+        public void PostCategory_Repository_GetAll()
         {
-            var list = objRespository.GetAll().ToList();
+            var list = objRepository.GetAll().ToList();
             Assert.AreEqual(3, list.Count);
         }
     }
