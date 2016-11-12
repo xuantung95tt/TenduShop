@@ -9,8 +9,8 @@ namespace TeduShop.Model.Abstract
         public string CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
         [MaxLength(50)]
-        public string UpdateBy { get; set; }
-        public DateTime? UpdateDate { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         [MaxLength(500)]
         public string MetaDescription { get; set; }
         [MaxLength(500)]

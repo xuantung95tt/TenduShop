@@ -10,7 +10,7 @@ namespace TedShop.Data.Infrastructure
     {
         #region Properties
 
-        private TenduShopDbContext dataContext;
+        private TeduShopDbContext dataContext;
         private readonly IDbSet<T> dbSet;
 
         public RepositoryBase(IDbFactory dbFactory)
@@ -25,7 +25,7 @@ namespace TedShop.Data.Infrastructure
             private set;
         }
 
-        protected TenduShopDbContext DbContext
+        protected TeduShopDbContext DbContext
         {
             get { return dataContext ?? (dataContext = DbFactory.Init()); }
         }

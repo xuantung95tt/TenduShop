@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace TenduShop.Web
+namespace TeduShop.Web
 {
     public class RouteConfig
     {

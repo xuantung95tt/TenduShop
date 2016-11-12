@@ -1,14 +1,16 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 using TeduShop.Model.Models;
 
 namespace TedShop.Data
 {
-    public class TenduShopDbContext : DbContext
+    public class TeduShopDbContext : IdentityDbContext<ApplicationUser>
     {
-        public TenduShopDbContext() : base("TenduShopConnection")
+        public TeduShopDbContext() : base("TeduShopConnection")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }
+
         public DbSet<Footer> Footers { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<MenuGroup> MenuGroups { get; set; }
@@ -27,8 +29,16 @@ namespace TedShop.Data
         public DbSet<Tag> Tags { get; set; }
         public DbSet<VisitorStatistic> VisitorStatistics { get; set; }
         public DbSet<Error> Errors { get; set; }
+
+        public static TeduShopDbContext Create()
+        {
+            return new TeduShopDbContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }

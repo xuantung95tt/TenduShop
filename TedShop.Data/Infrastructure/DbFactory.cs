@@ -2,11 +2,11 @@
 {
     public class DbFactory : Disposable, IDbFactory
     {
-        private TenduShopDbContext dbContext;
+        private TeduShopDbContext dbContext;
 
-        public TenduShopDbContext Init()
+        public TeduShopDbContext Init()
         {
-            return dbContext ?? (dbContext = new TenduShopDbContext());
+            return dbContext ?? (dbContext = new TeduShopDbContext());
         }
 
         protected override void DisposeCore()

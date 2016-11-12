@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace TenduShop.Web.Controllers
+namespace TeduShop.Web.Controllers
 {
     public class HomeController : Controller
     {

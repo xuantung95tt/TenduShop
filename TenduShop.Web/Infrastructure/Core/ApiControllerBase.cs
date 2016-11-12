@@ -8,7 +8,7 @@ using System.Web.Http;
 using TeduShop.Model.Models;
 using TeduShop.Service;
 
-namespace TenduShop.Web.Infrastructure.Core
+namespace TeduShop.Web.Infrastructure.Core
 {
     public class ApiControllerBase : ApiController
     {
@@ -16,28 +16,28 @@ namespace TenduShop.Web.Infrastructure.Core
 
         public ApiControllerBase(IErrorService errorService)
         {
-            _errorService = errorService;
+            this._errorService = errorService;
         }
 
-        protected HttpResponseMessage CreateHttpResponse(HttpRequestMessage requestMessage,
-            Func<HttpResponseMessage> func)
+        protected HttpResponseMessage CreateHttpResponse(HttpRequestMessage requestMessage, Func<HttpResponseMessage> function)
         {
             HttpResponseMessage response = null;
-            response = func.Invoke();
             try
             {
+                response = function.Invoke();
             }
             catch (DbEntityValidationException ex)
             {
                 foreach (var eve in ex.EntityValidationErrors)
                 {
-                    Trace.WriteLine($"Entity of type \"{eve.Entry.Entity.GetType().Name}\" in state \"{eve.Entry.State}\" has the following" +
-                        " validation error. ");
+                    Trace.WriteLine($"Entity of type \"{eve.Entry.Entity.GetType().Name}\" in state \"{eve.Entry.State}\" has the following validation error.");
                     foreach (var ve in eve.ValidationErrors)
                     {
-                        Trace.WriteLine($"-Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
+                        Trace.WriteLine($"- Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
                     }
                 }
+                LogError(ex);
+                response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.InnerException.Message);
             }
             catch (DbUpdateException dbEx)
             {

@@ -4,6 +4,6 @@ namespace TedShop.Data.Infrastructure
 {
     public interface IDbFactory : IDisposable
     {
-        TenduShopDbContext Init();
+        TeduShopDbContext Init();
     }
 }
