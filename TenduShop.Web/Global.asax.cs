@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using TeduShop.Web;
-using TenduShop.Web.Mappings;
+using TeduShop.Web.Mappings;
 
 namespace TeduShop.Web
 {

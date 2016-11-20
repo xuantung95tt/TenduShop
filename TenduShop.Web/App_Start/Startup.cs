@@ -14,7 +14,7 @@ using TedShop.Data.Infrastructure;
 using TedShop.Data.Respositories;
 using TeduShop.Model.Models;
 using TeduShop.Service;
-using TenduShop.Web.App_Start;
+using TeduShop.Web.App_Start;
 
 [assembly: OwinStartup(typeof(TeduShop.Web.App_Start.Startup))]
 

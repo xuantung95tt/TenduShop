@@ -4,11 +4,12 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using TenduShop.Web.App_Start;
+using TeduShop.Web.App_Start;
 
-namespace TenduShop.Web.Api
+namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/account")]
+    [Authorize]
     public class AccountController : System.Web.Http.ApiController
     {
         private ApplicationSignInManager _signInManager;
@@ -49,7 +50,6 @@ namespace TenduShop.Web.Api
         }
         // POST: /Account/Login
         [HttpPost]
-        [AllowAnonymous]
         [Route("login")]
         public async Task<HttpResponseMessage> Login(HttpRequestMessage request, string username, string password, bool rememberMe)
         {

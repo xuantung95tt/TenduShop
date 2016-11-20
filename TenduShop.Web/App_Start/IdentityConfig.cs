@@ -13,7 +13,7 @@ using Microsoft.Owin.Security;
 using TeduShop.Model.Models;
 using TedShop.Data;
 
-namespace TenduShop.Web.App_Start
+namespace TeduShop.Web.App_Start
 {
     public class ApplicationUserStore:UserStore<ApplicationUser>
     {

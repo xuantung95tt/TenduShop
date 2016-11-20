@@ -61,46 +61,38 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RespositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201610041411163_InitialDB.cs" />
-    <Compile Include="Migrations\201610041411163_InitialDB.Designer.cs">
-      <DependentUpon>201610041411163_InitialDB.cs</DependentUpon>
+    <Compile Include="Migrations\201611190052448_InitDatabase.cs" />
+    <Compile Include="Migrations\201611190052448_InitDatabase.Designer.cs">
+      <DependentUpon>201611190052448_InitDatabase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610161332103_AddErrorTable.cs" />
-    <Compile Include="Migrations\201610161332103_AddErrorTable.Designer.cs">
-      <DependentUpon>201610161332103_AddErrorTable.cs</DependentUpon>
+    <Compile Include="Migrations\201611200238107_AddTagField.cs" />
+    <Compile Include="Migrations\201611200238107_AddTagField.Designer.cs">
+      <DependentUpon>201611200238107_AddTagField.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610261350252_UpdateErrorTable.cs" />
-    <Compile Include="Migrations\201610261350252_UpdateErrorTable.Designer.cs">
-      <DependentUpon>201610261350252_UpdateErrorTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611121242486_Intergrate-AspnetIdentity.cs" />
-    <Compile Include="Migrations\201611121242486_Intergrate-AspnetIdentity.Designer.cs">
-      <DependentUpon>201611121242486_Intergrate-AspnetIdentity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611121343293_ChangeKey.cs" />
-    <Compile Include="Migrations\201611121343293_ChangeKey.Designer.cs">
-      <DependentUpon>201611121343293_ChangeKey.cs</DependentUpon>
+    <Compile Include="Migrations\201611202104504_AddContentToSlide.cs" />
+    <Compile Include="Migrations\201611202104504_AddContentToSlide.Designer.cs">
+      <DependentUpon>201611202104504_AddContentToSlide.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Respositories\ErrorRespository.cs" />
-    <Compile Include="Respositories\FooterRespository.cs" />
-    <Compile Include="Respositories\MenuGroupRespository.cs" />
-    <Compile Include="Respositories\MenuRespository.cs" />
-    <Compile Include="Respositories\OrderDetailRespository.cs" />
-    <Compile Include="Respositories\OrderRespository.cs" />
-    <Compile Include="Respositories\PageRespository.cs" />
-    <Compile Include="Respositories\PostCategoryRespository.cs" />
-    <Compile Include="Respositories\PostRespository.cs" />
-    <Compile Include="Respositories\PostTagRespository.cs" />
-    <Compile Include="Respositories\ProductCategoryRespository.cs" />
-    <Compile Include="Respositories\ProductRespository.cs" />
-    <Compile Include="Respositories\ProductTagRespository.cs" />
-    <Compile Include="Respositories\SlideRespository.cs" />
-    <Compile Include="Respositories\SupportOnlineRespository.cs" />
-    <Compile Include="Respositories\SystemConfigRespository.cs" />
-    <Compile Include="Respositories\TagRespository.cs" />
-    <Compile Include="Respositories\VisitorStatisticRespository.cs" />
+    <Compile Include="Repositories\ErrorRespository.cs" />
+    <Compile Include="Repositories\FooterRespository.cs" />
+    <Compile Include="Repositories\MenuGroupRespository.cs" />
+    <Compile Include="Repositories\MenuRespository.cs" />
+    <Compile Include="Repositories\OrderDetailRespository.cs" />
+    <Compile Include="Repositories\OrderRespository.cs" />
+    <Compile Include="Repositories\PageRespository.cs" />
+    <Compile Include="Repositories\PostCategoryRespository.cs" />
+    <Compile Include="Repositories\PostRespository.cs" />
+    <Compile Include="Repositories\PostTagRespository.cs" />
+    <Compile Include="Repositories\ProductCategoryRespository.cs" />
+    <Compile Include="Repositories\ProductRespository.cs" />
+    <Compile Include="Repositories\ProductTagRespository.cs" />
+    <Compile Include="Repositories\SlideRespository.cs" />
+    <Compile Include="Repositories\SupportOnlineRespository.cs" />
+    <Compile Include="Repositories\SystemConfigRespository.cs" />
+    <Compile Include="Repositories\TagRespository.cs" />
+    <Compile Include="Repositories\VisitorStatisticRespository.cs" />
     <Compile Include="TeduShopDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -118,20 +110,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610041411163_InitialDB.resx">
-      <DependentUpon>201610041411163_InitialDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611190052448_InitDatabase.resx">
+      <DependentUpon>201611190052448_InitDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610161332103_AddErrorTable.resx">
-      <DependentUpon>201610161332103_AddErrorTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611200238107_AddTagField.resx">
+      <DependentUpon>201611200238107_AddTagField.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610261350252_UpdateErrorTable.resx">
-      <DependentUpon>201610261350252_UpdateErrorTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611121242486_Intergrate-AspnetIdentity.resx">
-      <DependentUpon>201611121242486_Intergrate-AspnetIdentity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611121343293_ChangeKey.resx">
-      <DependentUpon>201611121343293_ChangeKey.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611202104504_AddContentToSlide.resx">
+      <DependentUpon>201611202104504_AddContentToSlide.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

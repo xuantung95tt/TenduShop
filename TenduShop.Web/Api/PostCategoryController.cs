@@ -6,12 +6,13 @@ using System.Web.Http;
 using TeduShop.Model.Models;
 using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;
-using TenduShop.Web.Models;
-using TenduShop.Web.Infrastructure.Extensions;
+using TeduShop.Web.Models;
+using TeduShop.Web.Infrastructure.Extensions;
 
 namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/postcategory")]
+    [Authorize]
     public class PostCategoryController : ApiControllerBase
     {
         IPostCategoryService _postCategoryService;

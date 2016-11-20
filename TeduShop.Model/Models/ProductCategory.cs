@@ -28,6 +28,8 @@ namespace TeduShop.Model.Models
         public bool? HomeFlag { get; set; }
 
         public virtual IEnumerable<Product> Products { get; set; }
+        [Required]
+        [MaxLength(500)]
         public string Alias { get; set; }
     }
 }

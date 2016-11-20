@@ -8,7 +8,7 @@ namespace TedShop.Data
     {
         public TeduShopDbContext() : base("TeduShopConnection")
         {
-            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.LazyLoadingEnabled = true;
         }
 
         public DbSet<Footer> Footers { get; set; }
